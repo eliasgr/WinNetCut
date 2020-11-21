@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WinNetCut"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
+        <ComboBox Name="Devices" HorizontalAlignment="Left" Margin="144,62,0,0" VerticalAlignment="Top" Width="342" Height="25"/>
+        <DataGrid Name="ClientList" Margin="10,114,25,29" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn HeaderStringFormat="Select"/>
+                <DataGridTextColumn HeaderStringFormat="IP Address" CanUserResize="False" Width="35"/>
+                <DataGridTextColumn HeaderStringFormat="MAC Address"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

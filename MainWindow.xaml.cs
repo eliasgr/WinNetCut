@@ -24,5 +24,13 @@ namespace WinNetCut
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var devices = Helper.GetDevices();
+            Devices.ItemsSource = devices;
+        }
+
+        
     }
 }
