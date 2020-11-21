@@ -82,13 +82,16 @@ namespace WinNetCut
 
             var devices = new List<string>();
 
-            foreach (var device in NetworkInterface.GetAllNetworkInterfaces())
+            foreach (var device in deviceList)
             {
-                if (device.Name != null)
+                if (device.Interface.FriendlyName != null)
                 {
-                    devices.Add(device.Name);
+                    devices.Add(device.Interface.FriendlyName);
+
                 }
             }
+
+            devices.Sort();
             return devices;
 
         }
@@ -126,7 +129,7 @@ namespace WinNetCut
         public static IPAddress GetIPAddress(string interfaceFriendlyName)
         {
             InitDevice();
-           
+
             deviceList.Refresh();
             device = GetSelectedDevice(interfaceFriendlyName);
             device.Open(DeviceMode.Promiscuous, 1000);
